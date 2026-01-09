@@ -15,16 +15,16 @@ interface GalleryImage {
 }
 
 const galleryImages: GalleryImage[] = [
-  { src: gallery1, alt: 'AMG pink ambient lighting interior' },
-  { src: gallery2, alt: 'Audi red ambient lighting' },
-  { src: gallery3, alt: 'Starlight ceiling with purple ambient' },
-  { src: gallery4, alt: 'Purple ambient lighting interior' },
-  { src: gallery5, alt: 'VW purple ambient lighting' },
-  { src: gallery6, alt: 'BMW purple ambient interior' },
-  { src: gallery7, alt: 'Pink footwell ambient lighting' },
-  { src: gallery8, alt: 'Maserati purple ambient interior' },
-  { src: gallery9, alt: 'Console screen ambient lighting' },
-  { src: gallery10, alt: 'Rear screen entertainment system' },
+  { src: gallery1, alt: 'AMG Mercedes pink and red ambient lighting triptych' },
+  { src: gallery2, alt: 'Rolls Royce red ambient interior lighting' },
+  { src: gallery3, alt: 'Rolls Royce console red ambient lighting' },
+  { src: gallery4, alt: 'Bentley purple ambient lighting interior' },
+  { src: gallery5, alt: 'Bentley purple ambient door and console lighting' },
+  { src: gallery6, alt: 'VW Golf red ambient lighting interior' },
+  { src: gallery7, alt: 'BMW M steering wheel with carbon fiber' },
+  { src: gallery8, alt: 'BMW door panel red and blue ambient lighting' },
+  { src: gallery9, alt: 'Jaguar F-Pace red and blue ambient lighting' },
+  { src: gallery10, alt: 'Jaguar XE red and blue ambient interior' },
 ];
 
 const Gallery = () => {
