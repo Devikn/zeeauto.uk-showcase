@@ -16,19 +16,19 @@ const Hero = () => {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
-      {/* Background Image with Parallax Effect */}
+      {/* Background Image - Rotated 180deg, reduced overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: `url(${posterBackground})`,
-          transform: 'scale(1.1)',
+          transform: 'rotate(180deg)',
         }}
       />
       
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background" />
+      {/* Light overlay - 40% opacity only */}
+      <div className="absolute inset-0 bg-background/40" />
       
-      {/* Animated Stars */}
+      {/* Animated Stars - kept as requested */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {Array.from({ length: 50 }).map((_, i) => (
           <div
@@ -44,90 +44,63 @@ const Hero = () => {
         ))}
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center">
-        {/* Logo */}
-        <div className="mb-8 animate-fade-up" style={{ animationDelay: '0.2s' }}>
-          <div className="relative mx-auto animate-float">
-            <img 
-              src={zeeautoLogo} 
-              alt="ZeeAuto Logo" 
-              className="w-40 h-40 md:w-52 md:h-52 object-contain rounded-2xl"
-              style={{
-                filter: 'drop-shadow(0 0 30px hsl(30 100% 50% / 0.6))',
-              }}
-            />
-            {/* Glow effect behind logo */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-secondary/30 rounded-2xl blur-2xl -z-10" />
-          </div>
+      {/* Content - Centered */}
+      <div className="relative z-10 container mx-auto px-4 text-center flex flex-col items-center justify-center">
+        {/* Logo - Static, Centered, No animations */}
+        <div className="mb-6">
+          <img 
+            src={zeeautoLogo} 
+            alt="ZeeAuto Logo" 
+            className="w-36 h-36 md:w-44 md:h-44 object-contain rounded-2xl border border-primary/20"
+          />
         </div>
 
         {/* Brand Name */}
-        <h1
-          className="font-heading text-5xl md:text-7xl lg:text-8xl text-primary mb-4 tracking-wider animate-fade-up"
-          style={{ animationDelay: '0.4s' }}
-        >
+        <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl text-primary mb-3 tracking-wider">
           ZeeAuto.uk
         </h1>
 
         {/* Tagline */}
-        <p
-          className="text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-8 font-light tracking-wide animate-fade-up"
-          style={{ animationDelay: '0.6s' }}
-        >
+        <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground mb-6 font-light tracking-wide">
           Transforming Cars into Masterpieces
         </p>
 
         {/* Contact Info */}
-        <div
-          className="flex flex-wrap items-center justify-center gap-6 mb-10 animate-fade-up"
-          style={{ animationDelay: '0.8s' }}
-        >
+        <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 mb-8">
           <a
             href="https://instagram.com/zeeauto.uk"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
           >
-            <Instagram size={20} />
-            <span>@zeeauto.uk</span>
+            <Instagram size={18} />
+            <span className="text-sm md:text-base">@zeeauto.uk</span>
           </a>
           <a
             href="tel:07565009642"
             className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
           >
-            <Phone size={20} />
-            <span>07565 009642</span>
+            <Phone size={18} />
+            <span className="text-sm md:text-base">07565 009642</span>
           </a>
           <div className="flex items-center gap-2 text-muted-foreground">
-            <MapPin size={20} />
-            <span>West London</span>
+            <MapPin size={18} />
+            <span className="text-sm md:text-base">West London</span>
           </div>
         </div>
 
         {/* CTA Button */}
-        <div
-          className="animate-fade-up"
-          style={{ animationDelay: '1s' }}
+        <Button
+          variant="hero"
+          size="xl"
+          onClick={scrollToContact}
         >
-          <Button
-            variant="hero"
-            size="xl"
-            onClick={scrollToContact}
-          >
-            Get a Quote
-          </Button>
-        </div>
+          Get a Quote
+        </Button>
 
-        {/* Scroll Indicator - Chevron Arrow */}
-        <div
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-fade-up"
-          style={{ animationDelay: '1.2s' }}
-        >
-          <div className="flex flex-col items-center gap-1 animate-bounce">
-            <ChevronDown className="w-8 h-8 text-primary" />
-            <ChevronDown className="w-8 h-8 text-primary/60 -mt-5" />
-          </div>
+        {/* Scroll Indicator - Simple chevron */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+          <ChevronDown className="w-6 h-6 text-primary/60" />
         </div>
       </div>
     </section>
