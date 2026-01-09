@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import zeeautoLogo from '@/assets/zeeauto-logo.jpeg';
 
 const navLinks = [
   { label: 'Home', href: '#home' },
@@ -45,12 +46,14 @@ const Header = () => {
             onClick={() => scrollToSection('#home')}
             className="flex items-center gap-3 group"
           >
-            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-              <span className="font-heading text-primary-foreground text-xl font-bold">Z</span>
-            </div>
-            <span className="font-heading text-primary text-xl tracking-wider hidden sm:block group-hover:text-secondary transition-colors">
-              ZeeAuto.uk
-            </span>
+            <img 
+              src={zeeautoLogo} 
+              alt="ZeeAuto Logo" 
+              className="w-14 h-14 object-contain rounded-lg transition-transform duration-300 group-hover:scale-105"
+              style={{
+                filter: 'drop-shadow(0 0 8px hsl(30 100% 50% / 0.4))',
+              }}
+            />
           </button>
 
           {/* Desktop Navigation */}

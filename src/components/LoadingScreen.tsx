@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import heroCar from '@/assets/hero-car.jpg';
+import zeeautoLogo from '@/assets/zeeauto-logo.jpeg';
 
 interface LoadingScreenProps {
   onComplete: () => void;
@@ -57,16 +57,20 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
         ))}
       </div>
 
-      {/* Animated car */}
-      <div className="relative w-full h-48 mb-8 overflow-hidden">
-        <img
-          src={heroCar}
-          alt="Loading car"
-          className="absolute h-40 w-auto object-contain animate-slide-car"
-          style={{
-            filter: 'drop-shadow(0 0 30px hsl(30 100% 50% / 0.8))',
-          }}
-        />
+      {/* Animated Logo */}
+      <div className="relative mb-8 animate-pulse-glow">
+        <div className="relative">
+          <img
+            src={zeeautoLogo}
+            alt="ZeeAuto Logo"
+            className="w-48 h-48 md:w-64 md:h-64 object-contain rounded-2xl"
+            style={{
+              filter: 'drop-shadow(0 0 40px hsl(30 100% 50% / 0.6))',
+            }}
+          />
+          {/* Glow ring */}
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 blur-xl -z-10" />
+        </div>
       </div>
 
       {/* Logo text */}
