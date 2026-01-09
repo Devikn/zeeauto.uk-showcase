@@ -1,6 +1,7 @@
-import { Instagram, Phone, MapPin } from 'lucide-react';
+import { Instagram, Phone, MapPin, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import heroCar from '@/assets/hero-car.jpg';
+import posterBackground from '@/assets/poster-background.jpg';
+import zeeautoLogo from '@/assets/zeeauto-logo.jpeg';
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -19,7 +20,7 @@ const Hero = () => {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url(${heroCar})`,
+          backgroundImage: `url(${posterBackground})`,
           transform: 'scale(1.1)',
         }}
       />
@@ -45,14 +46,19 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
-        {/* Logo Shield */}
+        {/* Logo */}
         <div className="mb-8 animate-fade-up" style={{ animationDelay: '0.2s' }}>
-          <div className="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full bg-gradient-to-br from-primary via-secondary to-primary p-1 animate-float">
-            <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
-              <span className="font-heading text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-br from-primary to-secondary">
-                Z
-              </span>
-            </div>
+          <div className="relative mx-auto animate-float">
+            <img 
+              src={zeeautoLogo} 
+              alt="ZeeAuto Logo" 
+              className="w-40 h-40 md:w-52 md:h-52 object-contain rounded-2xl"
+              style={{
+                filter: 'drop-shadow(0 0 30px hsl(30 100% 50% / 0.6))',
+              }}
+            />
+            {/* Glow effect behind logo */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-secondary/30 rounded-2xl blur-2xl -z-10" />
           </div>
         </div>
 
@@ -113,13 +119,14 @@ const Hero = () => {
           </Button>
         </div>
 
-        {/* Scroll Indicator */}
+        {/* Scroll Indicator - Chevron Arrow */}
         <div
           className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-fade-up"
           style={{ animationDelay: '1.2s' }}
         >
-          <div className="w-6 h-10 rounded-full border-2 border-primary/50 flex justify-center pt-2">
-            <div className="w-1 h-3 bg-primary rounded-full animate-bounce" />
+          <div className="flex flex-col items-center gap-1 animate-bounce">
+            <ChevronDown className="w-8 h-8 text-primary" />
+            <ChevronDown className="w-8 h-8 text-primary/60 -mt-5" />
           </div>
         </div>
       </div>
