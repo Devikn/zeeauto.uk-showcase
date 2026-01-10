@@ -13,7 +13,7 @@ import {
 // Import service images
 import serviceAmbientLighting from '@/assets/service-ambient-lighting.jpg';
 import serviceStarlights from '@/assets/service-starlights.jpg';
-import serviceHeadlights from '@/assets/service-headlights.jpg';
+import serviceRemapping from '@/assets/service-remapping.jpg';
 import serviceAudio from '@/assets/service-audio.jpg';
 import serviceSteering from '@/assets/service-steering.jpg';
 import serviceHeadlightConversion from '@/assets/service-headlight-conversion.jpg';
@@ -41,7 +41,7 @@ const services = [
     title: 'Remapping & Coding',
     description: 'Professional ECU remapping and vehicle coding to unlock hidden features and optimize performance.',
     projectId: 'remapping',
-    projectImage: serviceHeadlights,
+    projectImage: serviceRemapping,
   },
   {
     icon: Volume2,
