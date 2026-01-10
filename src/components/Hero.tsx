@@ -1,4 +1,4 @@
-import { Instagram, Phone, MapPin, ChevronDown } from 'lucide-react';
+import { Instagram, Phone, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import posterBackground from '@/assets/poster-background.jpg';
 import zeeautoLogo from '@/assets/zeeauto-logo.jpeg';
@@ -27,6 +27,10 @@ const Hero = () => {
       
       {/* Light overlay - 40% opacity only */}
       <div className="absolute inset-0 bg-background/40" />
+      
+      {/* Yellow ambient glow around logo and button area */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-primary/15 rounded-full blur-[80px] pointer-events-none" />
       
       {/* Animated Stars - kept as requested */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -89,18 +93,15 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* CTA Button */}
-        <Button
-          variant="hero"
-          size="xl"
-          onClick={scrollToContact}
-        >
-          Get a Quote
-        </Button>
-
-        {/* Scroll Indicator - Simple chevron */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
-          <ChevronDown className="w-6 h-6 text-primary/60" />
+        {/* CTA Button - closer spacing */}
+        <div className="mt-4">
+          <Button
+            variant="hero"
+            size="xl"
+            onClick={scrollToContact}
+          >
+            Get a Quote
+          </Button>
         </div>
       </div>
     </section>
