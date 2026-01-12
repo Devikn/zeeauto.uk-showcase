@@ -50,12 +50,12 @@ const Hero = () => {
 
       {/* Content - Centered */}
       <div className="relative z-10 container mx-auto px-4 text-center flex flex-col items-center justify-center">
-        {/* Logo - Static, Centered, No animations */}
+        {/* Logo - Static, Centered, No animations - Increased size */}
         <div className="mb-6">
           <img 
             src={zeeautoLogo} 
             alt="ZeeAuto Logo" 
-            className="w-36 h-36 md:w-44 md:h-44 object-contain rounded-2xl border border-primary/20"
+            className="w-44 h-44 md:w-56 md:h-56 object-contain rounded-2xl border border-primary/20"
           />
         </div>
 
