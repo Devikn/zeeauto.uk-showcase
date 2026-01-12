@@ -8,6 +8,9 @@ import {
   Smartphone,
   Car,
   Droplets,
+  Camera,
+  Shield,
+  Code,
 } from 'lucide-react';
 
 // Import service images
@@ -20,12 +23,15 @@ import serviceHeadlightConversion from '@/assets/service-headlight-conversion.jp
 import serviceBodykit from '@/assets/service-bodykit.jpg';
 import serviceCeramic from '@/assets/service-ceramic.jpg';
 import serviceCarplay from '@/assets/service-carplay.jpg';
+import serviceDashcam from '@/assets/service-dashcam.jpg';
+import serviceTracker from '@/assets/service-tracker.jpg';
 
 const services = [
   {
     icon: Lightbulb,
     title: 'Ambient Lighting',
     description: 'OEM & custom ambient lighting installations that transform your vehicle interior into a stunning visual experience.',
+    price: 'Prices from £200',
     projectId: 'ambient-lighting',
     projectImage: serviceAmbientLighting,
   },
@@ -33,20 +39,31 @@ const services = [
     icon: Sparkles,
     title: 'Starlights',
     description: 'Premium fiber optic starlight headliner installations creating a mesmerizing galaxy effect in your vehicle roof.',
+    price: 'Prices from £300',
     projectId: 'starlights',
     projectImage: serviceStarlights,
   },
   {
     icon: Gauge,
-    title: 'Remapping & Coding',
-    description: 'Professional ECU remapping and vehicle coding to unlock hidden features and optimize performance.',
-    projectId: 'remapping',
+    title: 'Starlight Remapping',
+    description: 'Advanced starlight pattern remapping and customisation for unique ceiling configurations.',
+    price: 'Prices from £250',
+    projectId: 'starlight-remapping',
+    projectImage: serviceRemapping,
+  },
+  {
+    icon: Code,
+    title: 'Vehicle Coding',
+    description: 'Professional vehicle coding to unlock hidden features, enable options, and personalise your vehicle settings.',
+    price: 'Prices from £80',
+    projectId: 'vehicle-coding',
     projectImage: serviceRemapping,
   },
   {
     icon: Volume2,
     title: 'Audio Upgrades',
     description: 'High-end audio system installations including speakers, subwoofers, amplifiers, and sound deadening.',
+    price: 'Prices from £200',
     projectId: 'audio',
     projectImage: serviceAudio,
   },
@@ -54,27 +71,31 @@ const services = [
     icon: CircleDot,
     title: 'Steering Wheel Customisation',
     description: 'Bespoke steering wheel modifications including Alcantara wraps, LED displays, and carbon fiber accents.',
+    price: 'Prices from £150',
     projectId: 'steering',
     projectImage: serviceSteering,
   },
   {
     icon: Headphones,
-    title: 'Headlight Conversions',
+    title: 'Headlight Conversion',
     description: 'LED and laser headlight upgrades, custom projector installations, and DRL modifications.',
+    price: 'Prices from £300',
     projectId: 'headlights',
     projectImage: serviceHeadlightConversion,
   },
   {
     icon: Smartphone,
-    title: 'Apple CarPlay & Screen Upgrades',
+    title: 'Apple CarPlay Integration',
     description: 'Retrofit Apple CarPlay, Android Auto, and larger touchscreen displays for seamless connectivity.',
+    price: 'Prices from £160',
     projectId: 'carplay',
     projectImage: serviceCarplay,
   },
   {
     icon: Car,
-    title: 'Bodykits & Caliper Resprays',
+    title: 'Body Kits',
     description: 'Custom bodykit installations and professional caliper resprays in any color to match your style.',
+    price: 'Prices from £150',
     projectId: 'bodykit',
     projectImage: serviceBodykit,
   },
@@ -82,8 +103,25 @@ const services = [
     icon: Droplets,
     title: 'Ceramic Coatings',
     description: 'Premium ceramic coating applications for long-lasting paint protection and stunning gloss finish.',
+    price: 'Prices from £200',
     projectId: 'ceramic',
     projectImage: serviceCeramic,
+  },
+  {
+    icon: Camera,
+    title: 'Dash Cameras',
+    description: 'Premium front and rear dash camera installations with discreet wiring and seamless vehicle integration.',
+    price: 'Prices from £200',
+    projectId: 'dashcam',
+    projectImage: serviceDashcam,
+  },
+  {
+    icon: Shield,
+    title: 'Trackers & Immobilisers',
+    description: 'Advanced vehicle security solutions including GPS tracking and immobilisation systems for maximum protection.',
+    price: 'Prices from £400',
+    projectId: 'tracker',
+    projectImage: serviceTracker,
   },
 ];
 
@@ -144,8 +182,14 @@ const Services = () => {
                     {service.description}
                   </p>
 
-                  {/* View Past Projects Button - bottom right */}
-                  <div className="flex justify-end mt-auto">
+                  {/* Price and Button Row */}
+                  <div className="flex items-end justify-between mt-auto">
+                    {/* Price - bottom left */}
+                    <span className="text-primary/80 text-sm font-medium">
+                      {service.price}
+                    </span>
+                    
+                    {/* View Past Projects Button - bottom right */}
                     <button
                       onClick={() => handleScrollToProject(service.projectId)}
                       className="text-xs font-medium text-primary border border-primary/30 bg-background px-3 py-1.5 rounded hover:border-primary/60 hover:text-primary transition-colors duration-200"
@@ -156,6 +200,13 @@ const Services = () => {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Pricing Disclaimer */}
+          <div className="text-center mt-8">
+            <p className="text-muted-foreground/60 text-xs max-w-2xl mx-auto">
+              All prices shown are indicative starting prices. Final pricing may vary depending on vehicle make, model, year, and specific installation requirements.
+            </p>
           </div>
         </div>
 
