@@ -1,23 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Award, Clock, Users, Wrench } from 'lucide-react';
-import ambientInterior from '@/assets/ambient-interior.jpg';
-const stats = [{
-  icon: Award,
-  value: '500+',
-  label: 'Projects Completed'
-}, {
-  icon: Users,
-  value: '400+',
-  label: 'Happy Clients'
-}, {
-  icon: Clock,
-  value: '5+',
-  label: 'Years Experience'
-}, {
-  icon: Wrench,
-  value: '9',
-  label: 'Services Offered'
-}];
+
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
@@ -72,17 +54,6 @@ const About = () => {
                 techniques to ensure every installation is flawless. Your satisfaction is our 
                 top priority, and we work closely with you to bring your vision to life.
               </p>
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
-              {stats.map((stat, index) => <div key={stat.label} className={`text-center transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{
-              transitionDelay: `${600 + index * 100}ms`
-            }}>
-                  <stat.icon className="w-8 h-8 text-secondary mx-auto mb-2" />
-                  <div className="font-heading text-3xl text-primary mb-1">{stat.value}</div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
-                </div>)}
             </div>
           </div>
         </div>
