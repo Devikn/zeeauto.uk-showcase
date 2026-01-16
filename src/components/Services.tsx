@@ -11,6 +11,8 @@ import {
   Camera,
   Shield,
   Code,
+  Zap,
+  Wrench,
 } from 'lucide-react';
 
 // Import service images
@@ -25,8 +27,21 @@ import serviceCeramic from '@/assets/service-ceramic.jpg';
 import serviceCarplay from '@/assets/service-carplay.jpg';
 import serviceDashcam from '@/assets/service-dashcam.jpg';
 import serviceTracker from '@/assets/service-tracker.jpg';
+import serviceElectrical from '@/assets/service-electrical.jpg';
+import serviceGeneral from '@/assets/service-general.jpg';
 
-const services = [
+interface Service {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+  price?: string;
+  projectId: string;
+  projectImage: string;
+  buttonText?: string;
+  buttonAction?: 'project' | 'gallery';
+}
+
+const services: Service[] = [
   {
     icon: Lightbulb,
     title: 'Ambient Lighting',
@@ -45,11 +60,11 @@ const services = [
   },
   {
     icon: Gauge,
-    title: 'Starlight Remapping',
-    description: 'Advanced starlight pattern remapping and customisation for unique ceiling configurations.',
+    title: 'Starlight Customisation',
+    description: 'Bespoke starlight ceiling refinement designed to elevate the cabin atmosphere. Includes precision colour adjustments, brightness tuning, pattern reconfiguration, and meticulous finishing for a truly personalised luxury interior experience.',
     price: 'Prices from £250',
-    projectId: 'starlight-remapping',
-    projectImage: serviceRemapping,
+    projectId: 'starlight-customisation',
+    projectImage: serviceStarlights,
   },
   {
     icon: Code,
@@ -123,12 +138,37 @@ const services = [
     projectId: 'tracker',
     projectImage: serviceTracker,
   },
+  {
+    icon: Zap,
+    title: 'Electrical Fault Finding & Diagnostics',
+    description: 'Advanced vehicle electrical diagnostics carried out with precision and expertise. Comprehensive system scanning, wiring assessment, and module evaluation to accurately identify faults and restore optimal vehicle performance.',
+    projectId: 'electrical',
+    projectImage: serviceElectrical,
+    buttonText: 'View Gallery',
+    buttonAction: 'gallery',
+  },
+  {
+    icon: Wrench,
+    title: 'General Customisation & Installation',
+    description: 'Professional installation and customisation of both interior and exterior vehicle enhancements. Services include reverse cameras, parking sensors, dash cameras, ambient lighting components, interior upgrades, and exterior accessories — all integrated seamlessly to OEM-level standards with flawless finish.',
+    projectId: 'general',
+    projectImage: serviceGeneral,
+    buttonText: 'View Gallery',
+    buttonAction: 'gallery',
+  },
 ];
 
 const handleScrollToProject = (projectId: string) => {
   const element = document.getElementById(`project-${projectId}`);
   if (element) {
     element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+};
+
+const handleScrollToGallery = () => {
+  const element = document.getElementById('gallery');
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 };
 
@@ -184,17 +224,25 @@ const Services = () => {
 
                   {/* Price and Button Row */}
                   <div className="flex items-end justify-between mt-auto">
-                    {/* Price - bottom left */}
-                    <span className="text-primary/80 text-sm font-medium">
-                      {service.price}
-                    </span>
+                    {/* Price - bottom left (only if price exists) */}
+                    {service.price ? (
+                      <span className="text-primary/80 text-sm font-medium">
+                        {service.price}
+                      </span>
+                    ) : (
+                      <span></span>
+                    )}
                     
-                    {/* View Past Projects Button - bottom right */}
+                    {/* Button - bottom right */}
                     <button
-                      onClick={() => handleScrollToProject(service.projectId)}
+                      onClick={() => 
+                        service.buttonAction === 'gallery' 
+                          ? handleScrollToGallery() 
+                          : handleScrollToProject(service.projectId)
+                      }
                       className="text-xs font-medium text-primary border border-primary/30 bg-background px-3 py-1.5 rounded hover:border-primary/60 hover:text-primary transition-colors duration-200"
                     >
-                      View Past Projects
+                      {service.buttonText || 'View Past Projects'}
                     </button>
                   </div>
                 </div>
